@@ -1,6 +1,7 @@
 #include "encoder.h"
 #include "fstream"
 #include <iostream>
+
 using namespace std;
 
 void generateCodes(Node* root, string code, string codes[256]){

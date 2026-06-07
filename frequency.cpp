@@ -1,6 +1,7 @@
 #include "frequency.h"
 #include <fstream>
 #include <iostream>
+
 using namespace std;
 
 void countFrequency(const char* filename, int frequency[256]) {

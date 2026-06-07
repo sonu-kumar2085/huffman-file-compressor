@@ -4,6 +4,7 @@ A **lossless file compression tool** built in C++ using the **Huffman Encoding a
 
 ---
 
+
 ## 📌 Overview
 
 Huffman Coding is a **greedy algorithm** used for lossless data compression. It assigns shorter binary codes to more frequently occurring characters and longer codes to less frequent ones, reducing the overall file size.

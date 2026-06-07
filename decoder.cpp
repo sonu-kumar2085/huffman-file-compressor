@@ -1,7 +1,6 @@
 #include<iostream>
 #include<fstream>
 #include"decoder.h"
-
 using namespace std;
 
 void decode(const char* inputFile){

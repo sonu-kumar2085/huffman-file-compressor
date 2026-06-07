@@ -1,6 +1,7 @@
 #ifndef HUFFMAN_H
 #define HUFFMAN_H
 
+
 struct Node {
     unsigned char data;
     int freq;

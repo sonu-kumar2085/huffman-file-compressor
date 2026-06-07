@@ -3,6 +3,7 @@
 
 #include "huffman.h"
 #include <string>
+
 using namespace std;
 
 void generateCodes(Node* root, string code, string codes[256]);
