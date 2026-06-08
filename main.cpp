@@ -1,4 +1,3 @@
-
 /*
 huffman_compressor/
 ├── main.cpp
@@ -9,7 +8,11 @@ huffman_compressor/
 ├── encoder.h
 ├── encoder.cpp
 ├── decoder.h
-└── decoder.cpp   */
+├── decoder.cpp
+├── image.h
+├── image.cpp
+├── stb_image.h
+└── stb_image_write.h   */
 
 
 #include <iostream>

@@ -107,8 +107,18 @@ void decompressImage(const char* inputFile){
     unsigned char* pixels = new unsigned char[totalBytes];
     int pixelIndex = 0;
 
-    string outFileName = "Uncomp_" + string(inputFile);
-    outFileName = outFileName.substr(0, outFileName.size() - 5); // remove .huff
+    // Build output path: put "Uncomp_" before filename only, not the folder
+    string fullPath = string(inputFile);
+    size_t slashPos = fullPath.find_last_of("/\\");
+    string folder   = (slashPos == string::npos) ? "" : fullPath.substr(0, slashPos + 1);
+    string fname    = (slashPos == string::npos) ? fullPath : fullPath.substr(slashPos + 1);
+    // remove .huff from filename
+    fname = fname.substr(0, fname.size() - 5);
+    // change extension to .png (we write PNG via stbi_write_png)
+    size_t dotPos2 = fname.find_last_of('.');
+    if(dotPos2 != string::npos) fname = fname.substr(0, dotPos2);
+    fname += ".png";
+    string outFileName = folder + "Uncomp_" + fname;
 
     // decode bits into pixels array
     Node* currNode = root;
@@ -140,7 +150,11 @@ void decompressImage(const char* inputFile){
             currNode = root;
         }
     }
-    stbi_write_png(outFileName.c_str(), width, height, channels, pixels, width * channels);
+    if(stbi_write_png(outFileName.c_str(), width, height, channels, pixels, width * channels)){
+        cout << "Decompressed image saved to: " << outFileName << endl;
+    } else {
+        cout << "Error: failed to write output image!" << endl;
+    }
 
     // clean
     delete[] pixels;
